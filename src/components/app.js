@@ -20,6 +20,13 @@ export default class App extends Component {
     isAutenticated: false,
   };
 
+  updateAuthData = (obj) => {
+    this.setState({
+      user: obj.user,
+      password: obj.password,
+      isAutenticated: true,
+    });
+  };
   /** Gets fired when the route changes.
    *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
    *	@param {string} event.url	The newly routed URL
@@ -33,14 +40,19 @@ export default class App extends Component {
       <div id="app">
         <Header isAutenticated={this.state.isAutenticated} />
         <Router onChange={this.handleRoute}>
-          <Home path="/" />
+          <Home
+            path="/"
+            user={this.state.user}
+            password={this.state.password}
+            isAutenticated={this.state.isAutenticated}
+          />
           <Bas path="/basic" />
           <Iot path="/iot" />
           <Netw path="/network" />
           <Updates path="/updates" />
           {/* <Profile path="/profile/" user="me" />
 					<Profile path="/profile/:user" /> */}
-          <Login path="/login" />
+          <Login path="/login" updateAuthData={this.updateAuthData} />
         </Router>
         <Footer />
       </div>
