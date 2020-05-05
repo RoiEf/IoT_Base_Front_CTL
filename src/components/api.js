@@ -1,12 +1,8 @@
-import { h, Fragment } from 'preact';
+import { h, Fragment } from "preact";
 
 const loca = window.location.hostname;
-
-export const ApiDetails = () => {
-
-    return({address: loca /*, userName: user, pass: password, isAutenticated: autenticated*/});
-};
+// const port = 80;
 
 export const ApiAddressVisual = () => {
-return(<Fragment>IoT Address: {loca}</Fragment>);
+  return <Fragment>IoT Address: {loca}</Fragment>;
 };
