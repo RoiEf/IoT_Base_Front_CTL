@@ -29,26 +29,26 @@ const Login = (props) => {
       .catch((error) => console.log("something failed", error));
   };
   return (
-    <div class={style.login}>
-      <h1>Login</h1>
-      <form onSubmit={onSubmit}>
-        User Name:{" "}
-        <input
-          type="text"
-          value={userName}
-          onInput={(e) => setUserName(e.target.value)}
-        />
-        <br />
-        Password:{" "}
-        <input
-          type="text"
-          value={password}
-          onInput={(e) => setPassword(e.target.value)}
-        />
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <div class={style.loginPage}>
+      <div class={style.login}>
+        <h1>Login</h1>
+        <form onSubmit={onSubmit}>
+          <p>
+            <input
+              type="text"
+              placeholder="Username"
+              value={userName}
+              onInput={(e) => setUserName(e.target.value)}
+            /></p>
+          <p><input
+            type="text"
+            placeholder="Password"
+            value={password}
+            onInput={(e) => setPassword(e.target.value)}
+          /></p>
+          <p class="submit"><input type="submit" name="commit" value="Login" /></p>
+        </form>
+      </div></div>
   );
 };
 
