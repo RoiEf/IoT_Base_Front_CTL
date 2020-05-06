@@ -1,5 +1,6 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
+import { route } from 'preact-router';
 import style from "./style";
 
 const Login = (props) => {
@@ -19,9 +20,10 @@ const Login = (props) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log("login response: ", res);
+        // console.log("login response: ", res);
         if (res.message === "Auth sucess") {
           props.updateAuthData({ user: userName, password });
+          route("/", true);
         }
       })
       .catch((error) => console.log("something failed", error));
