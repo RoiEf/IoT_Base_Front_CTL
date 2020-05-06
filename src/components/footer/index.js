@@ -1,12 +1,18 @@
 import { h } from 'preact';
 // import { Link } from 'preact-router/match';
 import style from './style.css';
-import {ApiAddressVisual} from '../api';
+// import {ApiAddressVisual} from '../api';
+
+// const ApiAddressVisual = () => {
+// 	const loca = ;
+// 	return <Fragment>IoT Address: {loca}</Fragment>;
+// };
 
 const Footer = () => {
-	return(
+	const loca = `${window.location.hostname}`;
+	return (
 		<footer class={style.footer}>
-			<p><ApiAddressVisual /></p>
+			<p>{loca}</p>
 		</footer>
 	);
 };

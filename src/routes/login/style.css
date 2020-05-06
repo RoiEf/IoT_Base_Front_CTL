@@ -46,6 +46,10 @@
 	box-shadow: 0 1px whitesmoke;
   }
   
+  .login h2 {
+	color: red;
+  }
+
   .login p {
 	margin: 20px 0 0;
   }

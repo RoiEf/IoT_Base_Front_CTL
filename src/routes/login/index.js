@@ -6,6 +6,7 @@ import style from "./style";
 const Login = (props) => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(false);
 
   const address = `http://${window.location.hostname}:${80}/login`;
   const onSubmit = (e) => {
@@ -23,7 +24,12 @@ const Login = (props) => {
         // console.log("login response: ", res);
         if (res.message === "Auth sucess") {
           props.updateAuthData({ user: userName, password });
+          setError(false);
           route("/", true);
+        } else {
+          setUserName("");
+          setPassword("");
+          setError(true);
         }
       })
       .catch((error) => console.log("something failed", error));
@@ -32,6 +38,7 @@ const Login = (props) => {
     <div class={style.loginPage}>
       <div class={style.login}>
         <h1>Login</h1>
+        {error && (<h2>Wrong user name or password</h2>)}
         <form onSubmit={onSubmit}>
           <p>
             <input

@@ -5,3 +5,4 @@ tests
 *.lock
 
 package-lock.json
+size-plugin.json
