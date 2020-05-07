@@ -46,7 +46,12 @@ export default class App extends Component {
             password={this.state.password}
             isAutenticated={this.state.isAutenticated}
           />
-          <Bas path="/basic" isAutenticated={this.state.isAutenticated} />
+          <Bas
+            path="/basic"
+            user={this.state.user}
+            password={this.state.password}
+            isAutenticated={this.state.isAutenticated}
+          />
           <Iot path="/iot" />
           <Netw path="/network" />
           <Updates path="/updates" />
