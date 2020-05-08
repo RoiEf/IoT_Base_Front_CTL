@@ -3,7 +3,6 @@ import { useState, useEffect } from "preact/hooks";
 // import { route } from 'preact-router';
 import style from "./style";
 
-// import {ApiAddress} from '../../components/api';
 const address = `http://${window.location.hostname}:${80}/basic`;
 
 const Bas = (props) => {
@@ -58,7 +57,7 @@ const Bas = (props) => {
         }
       })
       .catch((error) => console.log("something failed", error));
-  }, []);
+  }, [props.user, props.password]);
 
   // if (!props.isAutenticated) {
   // 	route("/", true);

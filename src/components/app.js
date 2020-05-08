@@ -7,8 +7,8 @@ import Footer from "./footer";
 import Home from "../routes/home";
 import Iot from "../routes/iot";
 // import Profile from '../routes/profile';
-import Bas from "../routes/bas";
-import Netw from "../routes/netw";
+import Basic from "../routes/bas";
+import Network from "../routes/network";
 import Updates from "../routes/updates";
 
 import Login from "../routes/login";
@@ -46,14 +46,19 @@ export default class App extends Component {
             password={this.state.password}
             isAutenticated={this.state.isAutenticated}
           />
-          <Bas
+          <Basic
             path="/basic"
             user={this.state.user}
             password={this.state.password}
             isAutenticated={this.state.isAutenticated}
           />
           <Iot path="/iot" />
-          <Netw path="/network" />
+          <Network
+            path="/network"
+            user={this.state.user}
+            password={this.state.password}
+            isAutenticated={this.state.isAutenticated}
+          />
           <Updates path="/updates" />
           {/* <Profile path="/profile/" user="me" />
 					<Profile path="/profile/:user" /> */}
