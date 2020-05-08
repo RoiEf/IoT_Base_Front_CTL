@@ -7,9 +7,30 @@ const address = `http://${window.location.hostname}:${80}/network`;
 
 const Network = (props) => {
   const [ssid, updateSSID] = useState("base_iot");
-  const [password, updatePassword] = useState("");
-  const submitWiFi = () => {};
-  const submitAdvance = () => {};
+  const [wifiPassword, updatePassword] = useState("");
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (props.isAutenticated) {
+      fetch(address, {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          userName: props.user,
+          password: props.password,
+          cmd: "update",
+          ssid,
+          wifiPassword,
+        }),
+      })
+        .then((res) => res.json())
+        .then((res) => {
+          console.log("network response: ", res);
+        })
+        .catch((error) => console.log("something failed", error));
+    }
+  };
 
   useEffect(() => {
     if (props.isAutenticated) {
@@ -27,7 +48,7 @@ const Network = (props) => {
         .then((res) => res.json())
         .then((res) => {
           updateSSID(res.ssid);
-          updatePassword(res.password);
+          updatePassword(res.wifiPassword);
           console.log("res: ", res);
         })
         .catch((error) => console.log("something failed", error));
@@ -39,7 +60,7 @@ const Network = (props) => {
       <div class={style.network}>
         <h1>Network Settings</h1>
         <h2>WiFi Settings</h2>
-        <form onSubmit={submitWiFi}>
+        <form onSubmit={onSubmit}>
           <p>
             <input
               type="text"
@@ -50,7 +71,7 @@ const Network = (props) => {
           <p>
             <input
               type="text"
-              value={password}
+              value={wifiPassword}
               onInput={(e) => updatePassword(e.target.value)}
             />
           </p>
@@ -60,7 +81,7 @@ const Network = (props) => {
         </form>
         <br />
         <h2>Advanced Settings</h2>
-        <form onSubmit={submitAdvance}>
+        <form onSubmit={onSubmit}>
           <p>This is the Network Settings component.</p>
         </form>
       </div>
