@@ -4,14 +4,14 @@ import { Router } from "preact-router";
 import Header from "./header";
 import Footer from "./footer";
 // Code-splitting is automated for routes
-import Home from "../routes/home";
+import Home from "../routes/home.js";
 import Iot from "../routes/iot";
 // import Profile from '../routes/profile';
 import Basic from "../routes/bas";
-import Network from "../routes/network";
-import Updates from "../routes/updates";
+import Network from "../routes/network.js";
+import Updates from "../routes/updates.js";
 
-import Login from "../routes/login";
+import Login from "../routes/login.js";
 
 export default class App extends Component {
   state = {
@@ -60,8 +60,6 @@ export default class App extends Component {
             isAutenticated={this.state.isAutenticated}
           />
           <Updates path="/updates" />
-          {/* <Profile path="/profile/" user="me" />
-					<Profile path="/profile/:user" /> */}
           <Login path="/login" updateAuthData={this.updateAuthData} />
         </Router>
         <Footer />

@@ -1,7 +1,8 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
-import { route } from 'preact-router';
-import style from "./style";
+import { route } from "preact-router";
+import styles from "../components/styles.css";
+import style from "./login/style";
 
 const Login = (props) => {
   const [userName, setUserName] = useState("");
@@ -35,10 +36,10 @@ const Login = (props) => {
       .catch((error) => console.log("something failed", error));
   };
   return (
-    <div class={style.loginPage}>
+    <div class={styles.basePage}>
       <div class={style.login}>
         <h1>Login</h1>
-        {error && (<h2>Wrong user name or password</h2>)}
+        {error && <h2>Wrong user name or password</h2>}
         <form onSubmit={onSubmit}>
           <p>
             <input
@@ -46,16 +47,22 @@ const Login = (props) => {
               placeholder="Username"
               value={userName}
               onInput={(e) => setUserName(e.target.value)}
-            /></p>
-          <p><input
-            type="text"
-            placeholder="Password"
-            value={password}
-            onInput={(e) => setPassword(e.target.value)}
-          /></p>
-          <p class="submit"><input type="submit" name="commit" value="Login" /></p>
+            />
+          </p>
+          <p>
+            <input
+              type="text"
+              placeholder="Password"
+              value={password}
+              onInput={(e) => setPassword(e.target.value)}
+            />
+          </p>
+          <p class="submit">
+            <input type="submit" name="commit" value="Login" />
+          </p>
         </form>
-      </div></div>
+      </div>
+    </div>
   );
 };
 
