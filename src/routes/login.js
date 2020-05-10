@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import { route } from "preact-router";
-import styles from "../style/styles.css";
+// import styles from "../style/styles.css";
 import style from "./login/style";
 
 const Login = (props) => {
@@ -36,7 +36,7 @@ const Login = (props) => {
       .catch((error) => console.log("something failed", error));
   };
   return (
-    <div class={styles.basePage}>
+    <div id="basePage">
       <div class={style.login}>
         <h1>Login</h1>
         {error && <h2>Wrong user name or password</h2>}

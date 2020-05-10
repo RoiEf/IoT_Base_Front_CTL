@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 // import { route } from 'preact-router';
-import styles from "../style/styles.css";
+// import styles from "../style/styles.css";
 import style from "./network/style";
 
 const address = `http://${window.location.hostname}:${80}/network`;
@@ -57,7 +57,7 @@ const Network = (props) => {
   }, [props.isAutenticated, props.user, props.password]);
 
   return (
-    <div class={styles.basePage}>
+    <div id="basePage">
       <div class={style.network}>
         <h1>Network Settings</h1>
         <h2>WiFi Settings</h2>
