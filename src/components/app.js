@@ -1,4 +1,5 @@
-import { h, Component } from "preact";
+import { h/*, Component*/ } from "preact";
+import { useState } from "preact/hooks";
 import { Router } from "preact-router";
 
 import Header from "./header";
@@ -13,57 +14,61 @@ import Updates from "../routes/updates.js";
 
 import Login from "../routes/login.js";
 
-export default class App extends Component {
-  state = {
-    user: null,
-    password: null,
-    isAutenticated: false,
-  };
+// export default class App extends Component {
+const App = () => {
+  const [user, setUser] = useState(null);
+  const [password, setPassword] = useState(null);
+  const [isAutenticated, setIsAutenticated] = useState(false);
+  // state = {
+  //   user: null,
+  //   password: null,
+  //   isAutenticated: false,
+  // };
 
-  updateAuthData = (obj) => {
-    this.setState({
-      user: obj.user,
-      password: obj.password,
-      isAutenticated: true,
-    });
+  const updateAuthData = (obj) => {
+    setUser(obj.user);
+    setPassword(obj.password);
+    setIsAutenticated(true);
   };
   /** Gets fired when the route changes.
    *	@param {Object} event		"change" event from [preact-router](http://git.io/preact-router)
    *	@param {string} event.url	The newly routed URL
    */
-  handleRoute = (e) => {
-    this.currentUrl = e.url;
-  };
+  // const handleRoute = (e) => {
+  //   this.currentUrl = e.url;
+  // };
 
-  render() {
-    return (
-      <div id="app">
-        <Header isAutenticated={this.state.isAutenticated} />
-        <Router onChange={this.handleRoute}>
-          <Home
-            path="/"
-            user={this.state.user}
-            password={this.state.password}
-            isAutenticated={this.state.isAutenticated}
-          />
-          <Basic
-            path="/basic"
-            user={this.state.user}
-            password={this.state.password}
-            isAutenticated={this.state.isAutenticated}
-          />
-          <Iot path="/iot" />
-          <Network
-            path="/network"
-            user={this.state.user}
-            password={this.state.password}
-            isAutenticated={this.state.isAutenticated}
-          />
-          <Updates path="/updates" />
-          <Login path="/login" updateAuthData={this.updateAuthData} />
-        </Router>
-        <Footer />
-      </div>
-    );
-  }
-}
+  // render() {
+  return (
+    <div id="app">
+      <Header isAutenticated={isAutenticated} />
+      <Router /* onChange={this.handleRoute} */>
+        <Home
+          path="/"
+          user={user}
+          password={password}
+          isAutenticated={isAutenticated}
+        />
+        <Basic
+          path="/basic"
+          user={user}
+          password={password}
+          isAutenticated={isAutenticated}
+        />
+        <Iot path="/iot" />
+        <Network
+          path="/network"
+          user={user}
+          password={password}
+          isAutenticated={isAutenticated}
+        />
+        <Updates path="/updates" />
+        <Login path="/login" updateAuthData={updateAuthData} />
+      </Router>
+      <Footer />
+    </div>
+  );
+  // }
+};
+
+export default App;

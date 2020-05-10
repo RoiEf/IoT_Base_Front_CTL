@@ -1,7 +1,7 @@
 import { h } from "preact";
 import { useState } from "preact/hooks";
 import { route } from "preact-router";
-import styles from "../components/styles.css";
+import styles from "../style/styles.css";
 import style from "./login/style";
 
 const Login = (props) => {

@@ -1,6 +1,6 @@
 import { h } from "preact";
 // import style from "./style";
-import styles from "../components/styles.css";
+import styles from "../style/styles.css";
 
 const Home = (props) => {
   return (

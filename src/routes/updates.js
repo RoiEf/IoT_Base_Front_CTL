@@ -1,5 +1,5 @@
 import { h } from "preact";
-import styles from "../components/styles.css";
+import styles from "../style/styles.css";
 
 const Updates = () => {
   return (
