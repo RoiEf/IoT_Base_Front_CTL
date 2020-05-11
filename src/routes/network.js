@@ -2,7 +2,7 @@ import { h } from "preact";
 import { useState, useEffect } from "preact/hooks";
 // import { route } from 'preact-router';
 // import styles from "../style/styles.css";
-import style from "./network/style";
+// import style from "./network/style";
 
 const address = `http://${window.location.hostname}:${80}/network`;
 
@@ -58,9 +58,14 @@ const Network = (props) => {
 
   return (
     <div id="basePage">
-      <div class={style.network}>
+      <div id="topHeader">
         <h1>Network Settings</h1>
-        <h2>WiFi Settings</h2>
+      </div>
+      <div id="contentBox">
+        <h1>Basic Settings</h1>
+      </div>
+      <div id="contentBox">
+        <h1>WiFi Settings</h1>
         <form onSubmit={onSubmit}>
           <p>
             <input
@@ -80,11 +85,9 @@ const Network = (props) => {
             <input type="submit" name="commit" value="Save" />
           </p>
         </form>
-        <br />
-        <h2>Advanced Settings</h2>
-        <form onSubmit={onSubmit}>
-          <p>This is the Network Settings component.</p>
-        </form>
+      </div>
+      <div id="contentBox">
+        <h1>IP Settings</h1>
       </div>
     </div>
   );

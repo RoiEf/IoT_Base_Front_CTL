@@ -4,8 +4,15 @@ import { h } from "preact";
 const Updates = () => {
   return (
     <div id="basePage">
-      <h1>Updates</h1>
-      <p>This is the Updates component.</p>
+      <div id="topHeader">
+        <h1>Updates</h1>
+      </div>
+      <div id="contentBox">
+        <h1>Firmware Upload</h1>
+      </div>
+      <div id="contentBox">
+        <h1>Control Upload</h1>
+      </div>
     </div>
   );
 };
