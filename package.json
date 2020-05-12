@@ -1,7 +1,7 @@
 {
   "private": true,
-  "name": "IoT-CTL",
-  "version": "0.0.0",
+  "name": "iot-ctl",
+  "version": "0.0.1",
   "license": "MIT",
   "scripts": {
     "build": "preact build --no-prerender --no-sw",
